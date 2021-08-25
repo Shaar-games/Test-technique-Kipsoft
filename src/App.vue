@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="space-y-10">
+    <h1 class="text-center mt-10 title font-bold my-10">Test technique Kipsoft</h1>
+  </div>
+  <searchbar/>
+  <companytable class="mt-10"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import searchbar from './components/searchbar.vue'
+import companytable from './components/companytable.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    searchbar,
+    companytable
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
+@media screen and (max-width: 768px) { .title { font-size: 30px; }}
+@media screen and (min-width: 768px) { .title { font-size: 35px; }}
+
 </style>
