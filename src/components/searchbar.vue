@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto text-center">
     <div class="pt-2 relative mx-auto text-gray-600 ">
-      <input v-model="search" class="search shadow-2xl border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="search" name="search" placeholder="Rechercher">
+      <input v-model="search" v-on:keyup.enter="$emit('search', search , 1)" class="search shadow-2xl border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="search" name="search" placeholder="Rechercher">
       <br>
       <b>{{ search }}</b>
     </div>
@@ -12,7 +12,8 @@
 export default {
   data: function () {
     return {
-      search: ""
+      search: "",
+      page : 1
     }
   }
 }
