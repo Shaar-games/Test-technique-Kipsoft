@@ -3,7 +3,7 @@
     <h1 class="text-center mt-10 title font-bold my-10">Test technique Kipsoft</h1>
   </div>
   <searchbar v-on:search="UpdateSearch"/>
-  <companytable  v-bind:entreprises="entreprises" class="mt-10"/>
+  <companytable v-on:page="UpdatePage" v-bind:entreprises="entreprises" class="mt-10"/>
 </template>
 
 <script>
@@ -21,16 +21,25 @@ export default {
   },
   methods:{
     UpdateSearch : async function (value , page) {
+      
+      if( typeof(value) != "string") return ;
       console.log( value , page )
+
+      this.searchvalue = value
       try{
         let rep = await axios.get( `https://entreprise.data.gouv.fr/api/sirene/v1/full_text/${value}?per_page=5&page=${page}` )
 
         this.entreprises = rep.data
-        console.log( "updated with " , value)
+        console.log( "updated with" , value , page )
+        
         console.log( this.entreprises )
       }catch(e){
+        
         this.entreprises = {}
       }
+    },
+    UpdatePage : function( page ){
+      this.UpdateSearch( this.searchvalue , page )
     }
   },
   mounted : function() {
@@ -38,7 +47,8 @@ export default {
   },
   data: function () {
     return {
-      entreprises : {}
+      entreprises : {},
+      searchvalue : ""
     }
   }
 }
