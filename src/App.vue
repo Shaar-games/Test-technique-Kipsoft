@@ -23,16 +23,13 @@ export default {
     UpdateSearch : async function (value , page) {
       
       if( typeof(value) != "string") return ;
-      console.log( value , page )
 
       this.searchvalue = value
       try{
         let rep = await axios.get( `https://entreprise.data.gouv.fr/api/sirene/v1/full_text/${value}?per_page=5&page=${page}` )
 
         this.entreprises = rep.data
-        console.log( "updated with" , value , page )
-        
-        console.log( this.entreprises )
+        //console.log( this.entreprises )
       }catch(e){
         
         this.entreprises = {}
