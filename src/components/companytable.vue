@@ -47,34 +47,25 @@
                 <tr class="cursor-pointer w-max border-b border-gray-300" v-if="v.expanded" @click="v.expanded = !v.expanded">
                   <td colspan="5">
                     <div class="parent w-full text-center my-3">
-                      <div class="div1">
-                        <div class="text-sm leading-5 text-gray-500">
-                          Créé le
-                          <div class="text-sm leading-5 text-gray-900 font-medium">{{new Date(v.created_at).toLocaleDateString()}}</div> 
-                        </div>
+                      <div class="text-sm leading-5 text-gray-500">
+                        Créé le
+                        <div class="text-sm leading-5 text-gray-900 font-medium">{{new Date(v.created_at).toLocaleDateString()}}</div> 
                       </div>
 
-                      <div class="div2">
-                        <div class="text-sm leading-5 text-gray-500">
-                          Dernière mise à jour
-                          <div class="text-sm leading-5 text-gray-900 font-medium">{{new Date(v.updated_at).toLocaleDateString()}}</div> 
-                        </div>
+                      <div class="text-sm leading-5 text-gray-500">
+                        Dernière mise à jour
+                        <div class="text-sm leading-5 text-gray-900 font-medium">{{new Date(v.updated_at).toLocaleDateString()}}</div> 
                       </div>
 
-                      <div class="div3">
-                        <div class="text-sm leading-5 text-gray-500">
-                          Catégorie entreprise
-                          <div class="text-sm leading-5 text-gray-900 font-medium">{{v.categorie_entreprise || "?"}}</div> 
-                        </div>
+                      <div class="text-sm leading-5 text-gray-500">
+                        Catégorie entreprise
+                        <div class="text-sm leading-5 text-gray-900 font-medium">{{v.categorie_entreprise || "?"}}</div> 
                       </div>
 
-                      <div class="div4">
-                        <div class="text-sm leading-5 text-gray-500">
-                          Statut juridique
-                          <div class="text-sm leading-5 text-gray-900 font-medium">{{v.libelle_nature_juridique_entreprise || "?"}}</div> 
-                        </div>
+                      <div class="text-sm leading-5 text-gray-500">
+                        Statut juridique
+                        <div class="text-sm leading-5 text-gray-900 font-medium">{{v.libelle_nature_juridique_entreprise || "?"}}</div>
                       </div>
-
                     </div>
                   </td>
                 </tr>
@@ -209,9 +200,4 @@ grid-template-rows: repeat(1, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 }
-
-.div1 { grid-area: 1 / 1 / 2 / 2; }
-.div2 { grid-area: 1 / 2 / 2 / 3; }
-.div3 { grid-area: 1 / 3 / 2 / 4; }
-.div4 { grid-area: 1 / 4 / 2 / 5; }
 </style>
